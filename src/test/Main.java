@@ -15,26 +15,23 @@ public class Main {
 		ArrayList<String>aa=loadJson.getMethods();
 		ArrayList<String>bb=loadJson.getComments();
 		
-		System.out.println(aa.get(choice));
-		System.out.println(bb.get(choice));
+		//System.out.println(aa.get(choice));
+		//System.out.println(bb.get(choice));
 		
-//		String Hablu = "public String contains(int index){\n" + 
-//				"String aa = \"hghg\";" +
-//				"\tif (3<2) {\n" +
-//				"\t\taa = getFirst();\n" +
-//				"\t}\n" +
-//				"\telse {\n" +
-//				"\t\taa = getLast();\n" +
-//				"\t}\n" +
-//				"\treturn aa;"+
-//				"\n}";
-		
-//		System.out.println(Hablu);
-//		System.out.println();
-//		System.out.println();
-		
-		MethodAST methodAST = new MethodAST(aa.get(choice));
-		//MethodAST methodAST = new MethodAST(Hablu);
-		methodAST.printAST();
+		String Hablu = "public String contains(int index){\n" + 
+				"String aa = \"hghg\";" +
+				"\tif (3<2) {\n" +
+				"\t\taa = getFirst();\n" +
+				"\t}\n" +
+				"\telse {\n" +
+				"\t\taa = getLast();\n" +
+				"\t}\n" +
+				"\treturn aa;"+
+				"\n}";
+			
+		MethodAST methodAST = new MethodAST();
+		methodAST.prepareASTs(loadJson.getMethods());
+		ArrayList<String>asts=methodAST.getASTList();
+		System.out.println(asts.get(120));
 	}
 }
