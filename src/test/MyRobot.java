@@ -6,7 +6,7 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class MyRobot {
-
+	static int vv=82;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -22,9 +22,9 @@ public class MyRobot {
 				
 				try {
 					sleep(2000);
-					for(int i=0; i<80; i++)
+					for(int i=0; i<vv; i++)
 					{
-						sleep(200);
+						sleep(1000);
 						Robot robot = new Robot();
 						robot.keyPress(KeyEvent.VK_V);
 						robot.keyRelease(KeyEvent.VK_V);
@@ -39,6 +39,8 @@ public class MyRobot {
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
 						
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_UP);
 						robot.keyRelease(KeyEvent.VK_UP);
 						robot.keyPress(KeyEvent.VK_LEFT);
@@ -47,6 +49,8 @@ public class MyRobot {
 						robot.keyRelease(KeyEvent.VK_LEFT);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
+						
+						sleep(1000);
 						
 						robot.keyPress(KeyEvent.VK_S);
 						robot.keyRelease(KeyEvent.VK_S);
@@ -61,15 +65,31 @@ public class MyRobot {
 						robot.keyRelease(KeyEvent.VK_CONTROL);
 						robot.keyRelease(KeyEvent.VK_SPACE);
 						
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_SHIFT);
 						robot.keyPress(KeyEvent.VK_QUOTE);
 						robot.keyRelease(KeyEvent.VK_QUOTE);
+						robot.keyPress(KeyEvent.VK_9);
+						robot.keyRelease(KeyEvent.VK_9);
 						robot.keyRelease(KeyEvent.VK_SHIFT);										
 						
-						robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
-						robot.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_SPACE);
 						robot.keyRelease(KeyEvent.VK_SPACE);
+						robot.keyPress(KeyEvent.VK_RIGHT);
+						robot.keyRelease(KeyEvent.VK_RIGHT);
+						
+						robot.keyPress(KeyEvent.VK_SHIFT);
+						robot.keyPress(KeyEvent.VK_PLUS);
+						robot.keyRelease(KeyEvent.VK_PLUS);
+						robot.keyPress(KeyEvent.VK_PLUS);
+						robot.keyRelease(KeyEvent.VK_PLUS);
+						
+						robot.keyPress(KeyEvent.VK_QUOTE);
+						robot.keyRelease(KeyEvent.VK_QUOTE);
+						robot.keyRelease(KeyEvent.VK_SHIFT);
 						robot.keyPress(KeyEvent.VK_SPACE);
 						robot.keyRelease(KeyEvent.VK_SPACE);
 						
@@ -98,10 +118,10 @@ public class MyRobot {
 				super.run();
 				
 				try {
-					sleep(2000);
-					for(int i=0; i<80; i++)
+					sleep(4000);
+					for(int i=0; i<vv; i++)
 					{
-						sleep(200);
+						sleep(1000);
 						Robot robot = new Robot();
 						robot.keyPress(KeyEvent.VK_E);
 						robot.keyRelease(KeyEvent.VK_E);
@@ -116,6 +136,8 @@ public class MyRobot {
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
 						
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_UP);
 						robot.keyRelease(KeyEvent.VK_UP);
 						robot.keyPress(KeyEvent.VK_LEFT);
@@ -124,6 +146,8 @@ public class MyRobot {
 						robot.keyRelease(KeyEvent.VK_LEFT);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
+						
+						sleep(1000);
 						
 						robot.keyPress(KeyEvent.VK_S);
 						robot.keyRelease(KeyEvent.VK_S);
@@ -138,15 +162,31 @@ public class MyRobot {
 						robot.keyRelease(KeyEvent.VK_CONTROL);
 						robot.keyRelease(KeyEvent.VK_SPACE);
 						
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_SHIFT);
 						robot.keyPress(KeyEvent.VK_QUOTE);
 						robot.keyRelease(KeyEvent.VK_QUOTE);
+						robot.keyPress(KeyEvent.VK_0);
+						robot.keyRelease(KeyEvent.VK_0);
 						robot.keyRelease(KeyEvent.VK_SHIFT);										
 						
-						robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
-						robot.keyRelease(KeyEvent.VK_CLOSE_BRACKET);
+						sleep(1000);
+						
 						robot.keyPress(KeyEvent.VK_SPACE);
 						robot.keyRelease(KeyEvent.VK_SPACE);
+						robot.keyPress(KeyEvent.VK_RIGHT);
+						robot.keyRelease(KeyEvent.VK_RIGHT);
+						
+						robot.keyPress(KeyEvent.VK_SHIFT);
+						robot.keyPress(KeyEvent.VK_PLUS);
+						robot.keyRelease(KeyEvent.VK_PLUS);
+						robot.keyPress(KeyEvent.VK_PLUS);
+						robot.keyRelease(KeyEvent.VK_PLUS);
+						
+						robot.keyPress(KeyEvent.VK_QUOTE);
+						robot.keyRelease(KeyEvent.VK_QUOTE);
+						robot.keyRelease(KeyEvent.VK_SHIFT);
 						robot.keyPress(KeyEvent.VK_SPACE);
 						robot.keyRelease(KeyEvent.VK_SPACE);
 						
