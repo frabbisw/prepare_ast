@@ -9,36 +9,34 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 public class MethodAST {
-	ArrayList<String>sbts;
+	ArrayList<String>asts;
 	ArrayList<String>methods;
 	
 	public MethodAST() {
-		sbts=new ArrayList<String>();
+		asts=new ArrayList<String>();
 	}
 	
 	public void prepareASTs(ArrayList<String>methods) {
 		this.methods=methods;
 		
-		for(int i=0; i<methods.size(); i++){
-			
-			if((i+1)%(int)((double)methods.size()/1000)==0)
-			{
-				System.out.print("\r");
-				System.out.print(((double)i/(double)methods.size())*100+" %");
-			}
-			
-			String method = methods.get(i);
-			sbts.add(getAST(method));
-		}
+		System.out.println("preparing\n");
 		
-		System.out.println();
+		for(int i=0; i<methods.size(); i++){
+			String method = methods.get(i);
+			asts.add(getAST(method));
+			
+			if(i%(int)(1.0+(double)methods.size()/10000.0)==0) {
+				System.out.print("\r"+100*i/(double)methods.size()+" %");
+			}
+		}
+		System.out.println("\nast prepared.");
 	}
 	
 	public ArrayList<String>getASTList(){
-		return sbts;
+		return asts;
 	}
 	
-	public static String getAST(String methodStr) {
+	public String getAST(String methodStr) {
 		String classStr="public class Tmp {\n+" + methodStr + "\n}";
 		
 		ASTParser parser = ASTParser.newParser(AST.JLS3);
@@ -52,12 +50,7 @@ public class MethodAST {
 		cu.accept(new ASTVisitor() {
 			@Override
 			public boolean visit(MethodDeclaration node) {
-				//print(node, 0);
-				
 				node.accept(visitor);
-				
-				//System.out.println(visitor.getSBT());
-				
 				return false;
 			}
 		});
