@@ -25,7 +25,7 @@ public class MethodAST {
 			String method = methods.get(i);
 			asts.add(getAST(method));
 			
-			if(i%(int)(1.0+(double)methods.size()/10000.0)==0) {
+			if(i%(int)(1.0+(double)methods.size()/10.0)==0) {
 				System.out.print("\r"+100*i/(double)methods.size()+" %");
 			}
 		}

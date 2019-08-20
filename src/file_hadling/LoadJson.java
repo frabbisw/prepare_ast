@@ -62,10 +62,15 @@ public class LoadJson {
 	}
 	public void addAST(ArrayList<String> asts) {
 		wholeJson="";
+		System.out.println("preparing whole json");
 		for(int i=0; i<asts.size(); i++){
 			JSONObject jsonObject = jsonList.get(i);
 			jsonObject.put("ast", asts.get(i));
 			wholeJson+=(jsonObject.toString()+"\n");
+			
+			if(i%(int)(1.0+(double)asts.size()/10.0)==0) {
+				System.out.print("\r"+100*i/(double)asts.size()+" %");
+			}
 		}
 		System.out.println("ast added to jsons.");
 	}
