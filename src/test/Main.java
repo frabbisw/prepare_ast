@@ -5,7 +5,7 @@ public class Main {
 	{
 		FileProcessor fileProcessor = new FileProcessor("/home/iit/bin/DeepCom-master/data");
 		fileProcessor.loadAndSave("tmp.json");
-		fileProcessor.loadAndSave("test.json");
+		//fileProcessor.loadAndSave("test.json");
 		fileProcessor.loadAndSave("train.json");
 		fileProcessor.loadAndSave("valid.json");
 	}

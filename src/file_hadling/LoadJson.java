@@ -1,24 +1,26 @@
 package file_hadling;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import org.json.*;
 
 public class LoadJson {
 	String fileName;
-	String wholeJson;
 	ArrayList<JSONObject>jsonList;
 	ArrayList<String>methodList;
 	ArrayList<String>commentList;
 	
 	public LoadJson(String fileName){
-		wholeJson="";
+		//wholeJson="";
 		this.fileName=fileName;
 		jsonList=new ArrayList<JSONObject>();
 		methodList=new ArrayList<String>();
@@ -61,12 +63,12 @@ public class LoadJson {
 		return commentList;
 	}
 	public void addAST(ArrayList<String> asts) {
-		wholeJson="";
+		//wholeJson="";
 		System.out.println("preparing whole json");
 		for(int i=0; i<asts.size(); i++){
 			JSONObject jsonObject = jsonList.get(i);
 			jsonObject.put("ast", asts.get(i));
-			wholeJson+=(jsonObject.toString()+"\n");
+			//wholeJson+=(jsonObject.toString()+"\n");
 			
 			if(i%(int)(1.0+(double)asts.size()/10.0)==0) {
 				System.out.print("\r"+100*i/(double)asts.size()+" %");
@@ -74,15 +76,22 @@ public class LoadJson {
 		}
 		System.out.println("ast added to jsons.");
 	}
-	public String getWholeJsonAsString() {
-		return wholeJson;
-	}
+	
 	public void saveJson(String filename) {
 		try {
-			FileWriter fw=new FileWriter(filename);
-	           fw.write(wholeJson);
-	           fw.close();
-	           System.out.println("jsons saved.");
+			File fout = new File(filename);
+			FileOutputStream fos = new FileOutputStream(fout);
+		 
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+		 
+			for (int i = 0; i < jsonList.size(); i++) {
+				bw.write(jsonList.get(i).toString());
+				bw.newLine();
+			}
+		 
+			bw.close();
+			
+	        System.out.println("jsons saved.");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
