@@ -498,7 +498,34 @@ public class MyASTVisitor extends ASTVisitor{
 	@Override
 	public boolean visit(SimpleName node) {
 		// TODO Auto-generated method stub
-		SBT+=("( "+node.getClass().getSimpleName()+"_"+node+" ");
+		SBT+=("( ");
+		
+		String input=node.toString();
+		
+		int upperCase=0;
+		for (int k = 0; k < input.length(); k++) {
+		    if (Character.isUpperCase(input.charAt(k))) upperCase++;
+		}
+		if(upperCase==input.length()) {
+			SBT+=(input+" ");
+			return super.visit(node);
+		}
+		
+		String[] args;
+		if(input.contains("_")) {
+			args = node.toString().split("_");
+		}
+		else if(input.contains("-")) {
+			args = node.toString().split("-");
+		}
+		else {
+			args = node.toString().split("(?=\\p{Upper})");
+		}
+		
+		int length = args.length;
+		for (int i = 0; i <length; i++)
+			SBT+=(args[i]+" ");
+		//SBT+=("( "+node.getClass().getSimpleName()+"_"+node+" ");
 		//System.out.print("( "+node.getClass().getSimpleName()+"_"+node+" ");
 		return super.visit(node);
 	}
@@ -1073,7 +1100,8 @@ public class MyASTVisitor extends ASTVisitor{
 	@Override
 	public void endVisit(SimpleName node) {
 		// TODO Auto-generated method stub
-		SBT+=(") "+node.getClass().getSimpleName()+"_"+node+" ");
+		SBT+=") ";
+		//SBT+=(") "+node.getClass().getSimpleName()+"_"+node+" ");
 		//System.out.print(") "+node.getClass().getSimpleName()+"_"+node+" ");
 		super.endVisit(node);
 	}
